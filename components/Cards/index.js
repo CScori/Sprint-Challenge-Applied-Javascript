@@ -17,7 +17,18 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
-function CreateCard (data) {
+axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
+    .then(res => {
+        Object.values(res.data.articles).map(item => {
+            item.map(data => CreateCard(data))
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    });
+
+
+function CreateCard(data) {
     const newCard = document.createElement('div');
     //class card append head and author
     const newHeadline = document.createElement('div');
