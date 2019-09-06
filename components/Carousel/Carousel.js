@@ -1,9 +1,9 @@
 /* If You've gotten this far, you're on your own! Although we will give you some hints:
     1. You will need to write a function that creates the carousel component, you will find the HTML below. new function done
-    2. You will need to grab a reference to all of the images create array?
-    3. Create a current index for loop index?
-    4. Those buttons are gonna need some click handlers.
-    5. Think of how you would animate this component. Make the cards slide in and out, or fade. It's up to you!
+    2. You will need to grab a reference to all of the images create array done
+    3. Create a current index for loop and call function
+    4. Those buttons are gonna need some click handlers. event listener done
+    5. Think of how you would animate this component. Make the cards slide in and out, or fade. It's up to you! scale transform done
     6. Have fun!
 */
 
@@ -20,7 +20,7 @@
 
 let imgArray = ['./assets/carousel/mountains.jpeg', './assets/carousel/computer.jpeg', './assets/carousel/trees.jpeg', './assets/carousel/turntable.jpeg']
 
-function CreateCarousel (data) {
+function CreateCarousel(data) {
   const carousel = document.querySelector('.carousel-container')
   const newCar = document.createElement('div')
   const left = document.createElement('div')
@@ -46,4 +46,22 @@ function CreateCarousel (data) {
   img1.setAttribute(`src, ${data}`)
   img2.setAttribute(`src, ${data}`)
   img3.setAttribute(`src, ${data}`)
-}
+  left.textContent = `<`
+  right.textContent = `>`
+
+  left.addEventListener('click', e => {
+    console.log('left Click')
+    left.style.transform = 'scale(1.1)';
+    left.style.transition = 'transform 0.5s';
+  });
+
+  right.addEventListener('click', e => {
+    console.log('Right Click')
+    right.style.transform = 'scale(1.1)';
+    right.style.transition = 'transform 0.5s';
+  });
+
+  return newCar
+};
+
+CreateCarousel(imgArray)
