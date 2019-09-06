@@ -17,3 +17,32 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+function CreateCard (data) {
+    const newCard = document.createElement('div');
+    //class card append head and author
+    const newHeadline = document.createElement('div');
+    //class headline
+    const newAuthor = document.createElement('div');
+    //class author append imgcon newby
+    const imgCont = document.createElement('div');
+    //class immg-container
+    const img = document.createElement('img');
+    //img src 
+    const newBy = document.createElement('span');
+
+    newCard.classList.add('card');
+    newHeadline.classList.add('headline');
+    newAuthor.classList.add('author');
+    imgCont.classList.add('img-container');
+
+    newCard.appendChild(newHeadline);
+    newCard.appendChild(newAuthor);
+    newAuthor.appendChild(imgCont);
+    newAuthor.appendChild(newBy);
+
+    newHeadline.textContent = (`${data.headline}`);
+    img.setAttribute = (`src, ${data.authorPhoto}`);
+    newBy.textContent = (`By ${data.authorName}`);
+
+    return newCard
+};
