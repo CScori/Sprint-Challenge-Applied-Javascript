@@ -10,6 +10,7 @@
 
 axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
     .then(res => {
+
         res.data.topics.map(topic => createTab(topic))
     })
     .catch(err => {
