@@ -20,7 +20,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
 function createTab(data) {
     const tab = document.createElement('div');
     tab.classList.add('tab');
-    tab.textContent = ('data');
+    tab.textContent = (`${data}`);
 
     const tabs = document.querySelector('.tabs');
     tabs.appendChild(tab);
